@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>EjercicioStudio</title>
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta charset="UTF-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    	<style>
+			body {
+				margin: 0pt;
+				font-family: Arial;
+				margin-bottom: 20pt;
+			}
+
+			.in {
+				width: 100%;
+				outline: none;
+				border-bottom: 2px solid #2980b9;
+				padding: 10pt;
+			}
+			
+			.out {
+				width: 100%;
+				min-height: 13pt;
+				border-bottom: 2px solid #7f8c8d;
+				padding: 10pt;
+			}
+
+			.contenedor {
+				max-width: 1000px;
+				margin: 0px auto;
+			}
+
+			header{
+				margin-top: 10pt;
+				margin-bottom: 20pt;
+			}
+
+			#titulo {
+				font-size: 30pt;
+				border: none;
+				outline: none;
+			}
+
+			.seccion {
+				margin: 5pt 0pt;
+			}
+
+			.seccion h1 {
+				font-size: 15pt;
+				font-weight: normal;
+				margin-bottom: 2pt;
+				color: #7f8c8d;
+			}
+
+			.seccion .subseccion {
+				margin: 5pt 0pt 15pt 0pt;
+			}
+
+			label {
+				display: block;
+				clear:both;
+				color: #7f8c8d;
+
+			}
+
+			textarea {
+				width: 100%;
+				resize: vertical;
+
+			}
+
+			#version {
+				float: right;
+				font-style: italic;
+			}
+
+			.agregar {
+				display: block;
+				clear: both;
+				background-color: white;
+				border: none;
+				outline: none;
+			}
+			
+			footer {
+				position: fixed;
+				bottom: 0px;
+				background-color: #ecf0f1;
+				width: 100%;
+				height: 50pt;
+			}
+
+			.eliminar {
+				color: #c0392b;
+				text-align: right;
+			}
+
+			#principal {
+				margin: 5pt;
+				float: right;
+				height: 40pt;
+				background-color: white;
+				font-size: 20pt;
+				outline: none;
+				border: none;
+			}
+
+			input {
+				border: none;
+				outline: none;
+			}
+
+			input.centered {
+				text-align: center;
+			}
+
+			select {
+				border: none;
+				outline: none;
+				background-color: white;
+				margin: 10pt;
+			}
+
+			.accion {
+				color: #2980b9;
+				font-weight: bolder;
+			}
+
+			#dummy_bottom {
+				width: 100%;
+				height: 50pt;
+			}
+
+			.help {
+				float: right;
+				color: #27ae60;
+				font-size: 10pt;
+				margin-right: 10pt;
+			}
+
+		</style>
+	</head>
+	<body class="no-mathjax">
+		<div class="contenedor">
+			<header>
+				<input type="text" name="titulo" id="titulo" placeholder="Título" autofocus="1">
+				<div class="help" onclick="help('titulo')">¿?</div>
+			</header>
+			<div class="seccion problema">
+				<h1>Problema</h1><div class="help" onclick="help('problema')">¿?</div>
+				<div class="latex in" name="problema" id="problema" contenteditable="true"></div>
+				<div class="latex out" style="display: none;"></div>
+			</div>
+			<div class="seccion solucion">
+				<h1>Solución</h1><div class="help" onclick="help('solucion')">¿?</div>
+				<div class="latex in" name="solucion" id="solucion" contenteditable="true"></div>
+				<div class="latex out" style="display: none;"></div>
+			</div>
+			<div class="seccion" id="distractores">
+			<h1>Distractores</h1><div class="help" onclick="help('distractores')">¿?</div>
+			</div>
+			<button class="accion agregar" id="agregar_distractor">+ Agregar</button>
+			<div class="seccion" id="parametros">
+			<h1>Parámetros</h1><div class="help" onclick="help('parametros')">¿?</div>
+			</div>
+			<button class="accion agregar" id="agregar_parametro">+ Agregar</button>
+			<div class="seccion" id="computos">
+			<h1>Cómputos </h1><div class="help" onclick="help('computos')">¿?</div>
+			</div>
+			<button class="accion agregar" id="agregar_computo">+ Agregar</button>
+			<div class="seccion" id="metadatos">
+			</div>
+		</div>
+		<div id="dummy_bottom"></div>
+		<footer>
+			<div class="contenedor">
+				<a class="accion" id="guia" href="ejercicios_parametrizados.pdf" target="_blank" style="float: left;">Guia</a>
+				<div class="help" style="float: left;" onclick="help('guia')">¿?</div>
+				<button class="accion" id="cargar_ejemplo" onclick="cargar_ejemplo();" style="float: left;">Ejemplo</button>
+				<div class="help" style="float: left;" onclick="help('ejemplo')">¿?</div>
+				<button class="accion" id="cargar" onclick="cargar_ejercicio(true);" style="float: left;">Cargar</button>
+				<div class="help" style="float: left;" onclick="help('cargar')">¿?</div>
+				<button class="accion" id="cancelar_carga" onclick="cargar_ejercicio(false);" style="display: none;">Cancelar</button>
+				<input type="file" id="fileInput" style="display: none;">
+				<div class="help" onclick="help('descargar')">¿?</div>
+				<button class="accion" id="principal" onclick="descargar();">Descargar</button>
+			</div>
+		</footer>
+
+		<script>
+			titulo = $('#titulo');
+			problema = document.getElementById('problema');
+			solucion = document.getElementById('solucion');
+
+			// Ayudas
+			ayuda_log = {
+				'titulo': "Título del ejercicio con una corta descripción que da contexto al ejercicio.\n\nEs obligatorio definir el título.",
+				'problema': "Texto que especifica el problema. No incluye la solución. \n\nPuedes usar una variable (parámetro o cómputo) antecediendo un símbolo '&'. \n\nTambién puedes utilizar LaTeX estándar para definir fórmulas matemáticas (delimitando las con $ para fórmulas en la misma línea o $$ para fórmulas espaciadas y centradas).\n\nEs obligatorio definir esta sección.",
+				'solucion': "Texto que especifica la solución correcta al problema que deben seleccionar los alumnos para que se les compute el ejercicio como correcto. \n\nAl igual que en la sección Problema puedes usar una variable (parámetro o cómputo) antecediendo un símbolo '&'. \n\nTambien puedes utilizar LaTeX estandar para definir fórmulas matemáticas (delimitando con un símbolo ‘$‘ para formulas en la misma línea o ‘$$’ para fórmulas espaciadas y centradas).\n\nEs obligatorio definir esta sección.",
+				'distractores': "Especifica aquí las opciones que 'distraen' a los alumnos. Aquellos que elijan un distractor como respuesta se les computará incorrecto el ejercicio. Ten en cuenta que para que el ejercicio sea válido al menos debes definir un distractor.\n\nAl igual que en la sección Problema puedes usar una variable (parámetro o cómputo) antecediendo un símbolo '&'. \n\nTambien puedes utilizar LaTeX estandar para definir fórmulas matemáticas (delimitando con un símbolo ‘$‘ para formulas en la misma línea o ‘$$’ para fórmulas espaciadas y centradas).",
+				'parametros': "Son los parámetros que se instancian diferente en cada prueba. Esta instanciación de forma aleatoria de acuerdo a una distribución uniforme para el intervalo cerrado con los límites especificados entre minimo y maximo y con la cantidad de decimales especificados. \n\nEste parámetro lo puedes usar en las secciones Problemas, Solución y Distractores como un número cualquiera antecediendo el nombre con el símbolo '&'. \n\nRecuerda que solo debes anteponer '&' en esas 3 secciones. Para especificar la fórmula de cómputo no es necesario esta anteposición.",
+				'computos': "Parecido a parametro pero instanciado en base a la fórmula y con la cantidad de decimales especificadas. \n\nLas fórmulas a usar se pueden ver en la guía que se puede descargar abajo. Puedes utilizar parámetros (SIN anteponer  '&') pero aun no puedes usar otro cómputo (seguramente en la próxima versión).",
+				'ejemplo': "Carga un ejercicio de ejemplo para que puedas ver la nomenclatura de un ejercicio correctamente definido.",
+				'cargar': "Carga un ejercicio que creaste anteriormente, que descargaste de Colibrí o que te compartió un colega. Si no carga es muy probable que no este correctamente definido.",
+				'guia': "Descarga la guía que especifica el formato que utiliza y reconoce EjercicioStudio. Puedes obtener más información en el.",
+				'descargar': "Descarga el ejercicio en el formato especificado en la guia (la cual puedes descargar presionando el botón a la izquierda mio). \n\nSe realiza un chequeo superficial de la correctitud del ejercicio, sin embargo no se asegura que sea correcto ya que no se chequea que las variables y fórmulas estén correctamente definidas y usadas (seguramente en la próxima versión). En caso de que pase el chequeo se descargara el archivo de texto que podrás compartir con tus colegas y tal vez subirlo a Colibrí."
+			}
+
+			function help(item){
+				alert(ayuda_log[item]);
+			}
+
+			function normalized(text) {
+				return text.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "")
+			}
+
+			function key_value(keys, line) {
+				var key = false;
+				var value = null;
+				var splited = line.split(':');
+				if (splited.length > 1 && keys.indexOf(normalized(splited[0])) >= 0) {
+					key = normalized(splited[0])
+					value = splited[1].trim();
+				} else {
+					value = line;
+				}
+				return {"key": key, "value": value};
+			}
+
+			function splited(keys, text_array) {
+				// base case
+				if (Object.keys(keys).length == 0) {
+					return text_array.join("\n");
+				}
+
+				// iterative caise
+				var spliting = {};
+				var last_key = null;
+				var last_value = [];
+
+				for (var i = 0; i < text_array.length; i++) {
+					var line = text_array[i]
+					var valores = key_value(Object.keys(keys), line);
+					var key = valores["key"];
+					var value = valores["value"];
+					if (key){
+						if (last_key){
+							var new_dict = keys[last_key]
+							// new_dict[last_key] = {}
+							if (spliting[last_key]) {
+								spliting[last_key].push(splited(new_dict, last_value))
+							} else {
+								spliting[last_key] = [splited(new_dict, last_value)]
+							}
+						} else {
+							if (last_value.length > 0) {
+								spliting["base"] = [splited({}, last_value)]
+							}
+						}
+						last_key = key
+						last_value = [value]
+					} else {
+						last_value.push(value)
+					}
+				}
+				if (last_key){
+					var new_dict = keys[last_key]
+					// new_dict[last_key] = {}
+					if (spliting[last_key]) {
+						spliting[last_key].push(splited(new_dict, last_value))
+					} else {
+						spliting[last_key] = [splited(new_dict, last_value)]
+					}
+				}
+				return spliting
+			}
+
+			function parse(text_array) {
+				keys = {
+					'titulo': {},
+					'comentario': {},
+				 	'problema': {},
+				 	'solucion': {},
+				 	'distractor': {},
+				 	'parametro': {'minimo': {}, 'maximo': {}, 'decimales': {}, 'conjunto': {}}, 
+				 	'computo': {'formula': {}, 'decimales': {}}
+				};
+				
+				return splited(keys, text_array);
+			}
+
+			function consistente() {
+				var correcto = true;
+				if (!titulo.val()){ 
+					correcto = false;
+					alert('El titulo no puede ser vacio.');
+				}
+				if (!problema.innerText){ 
+					correcto = false;
+					alert('El problema no puede ser vacio.');
+				}
+				if (!solucion.innerText){ 
+					correcto = false;
+					alert('La solucion no puede ser vacio.');
+				}
+
+				var cantidad_distractores = 0
+				distractores = document.getElementsByName('distractor');
+				for (distractor_index in distractores){
+					var distractor = distractores[distractor_index];
+					if (distractor && distractor.innerText){
+						cantidad_distractores += 1
+					}
+				}
+
+				if (cantidad_distractores == 0){ 
+					correcto = false;
+					alert('El problema debe contar con al menos 1 distractor.');
+				}
+
+				return correcto;
+			}
+
+			function cargar_ejemplo(){
+
+				ejercicio = `Titulo: Integrales indefinidas
+Problema: La función $$F(x)= \int_{-1}^{x}{(|1-x|-x)dx}$$ admite para $x \\leq &menorigual$ una expresión $F(x)=ax^2+bx + c$, en forma de un polinomio de grado menor o igual a 2. 
+
+Determinar la suma a + b + c de los coeficientes de ese polinomio.
+
+Solución: &correcto
+
+Distractor: &distractor_a 
+Distractor: &distractor_b 
+Distractor: Ningúna de las demás es correcta
+
+Parámetro: limiteinferior
+Máximo: -1
+Minimo: -10
+Decimales:2
+
+Parámetro: constanteintegracion
+Máximo: 1
+Minimo: 20
+Decimales:2
+
+Parámetro: menorigual
+Máximo: 1
+Minimo: 3
+
+Computo: correcto
+Fórmula: limiteinferior*constanteintegracion-menorigual
+Decimales:1
+
+Computo: distractor_a
+Fórmula: limiteinferior*constanteintegracion
+Decimales: 1
+
+Computo: distractor_b
+Fórmula: limiteinferior*menorigual
+Decimales: 1
+`;
+				var parseado = parse(ejercicio.split("\n"));
+                cargar_ejercicio(false);
+				mostrar_ejercicio(parseado);
+			}
+
+			
+			window.onload = function() {
+		        var fileInput = document.getElementById('fileInput');
+		        // var fileDisplayArea = document.getElementById('fileDisplayArea');
+
+		        fileInput.addEventListener('change', function(e) {
+		            var file = fileInput.files[0];
+		            var textType = /text.*/;
+
+		            if (file.type.match(textType)) {
+		                var reader = new FileReader();
+
+		                reader.onload = function(e) {
+		                    var parseado = parse(reader.result.split("\n"));
+		                    console.log(parseado);
+		                    cargar_ejercicio(false);
+							mostrar_ejercicio(parseado);
+
+		                }
+
+		                reader.readAsText(file);    
+		            } else {
+		                alert("File not supported!")
+		            }
+		        });
+			}
+
+			function chequiar_unicidad(lista, nombre) {
+				if (lista.length > 1) {
+					alert("ADVERTENCIA:\nLa seccion \"" + nombre + "\" esta definida " + lista.length + " veces en el ejercicio cuando debe ser unica.");
+				}
+			}
+
+			function mostrar_ejercicio(ejercicio) {
+				chequiar_unicidad(ejercicio.titulo, "Título");
+				titulo.val(ejercicio.titulo || "")
+
+				chequiar_unicidad(ejercicio.problema, "Problema");
+				problema.innerText = ejercicio.problema || "";
+				ejercicio.problema && renderizar(problema);
+
+				chequiar_unicidad(ejercicio.solucion, "Solucion");
+				solucion.innerText = ejercicio.solucion || "";
+				ejercicio.solucion && renderizar(solucion);
+
+				$('#distractores').find(".distractor").remove()
+				for (var i = 0; i < ejercicio.distractor.length; i++) {
+					distractor = nuevo_distractor(ejercicio.distractor[i]);
+					distractor.innerText = ejercicio.distractor[i];
+					renderizar(distractor);
+				}
+
+				if (ejercicio.parametro) {
+					$('#agregar_parametro').find(".parametro").remove()
+					for (var i = 0; i < ejercicio.parametro.length; i++) { 
+						parametro = agregar_parametro();
+						par = ejercicio.parametro[i];
+						if (par.conjunto) {
+							if (par.base) {
+								parametro.find(".set #nombre").val(par.base[0].trim());
+							}
+							parametro.find("#set").click();
+							parametro.find(".container_numero").remove();
+							var set_container = parametro.find(".set")
+							$.each(par.conjunto[0].split(","), function (index, numero){
+								set_container.append(agregar_numero_set(numero.trim()));
+							});
+						} else {
+							if (par.base) {
+								parametro.find(".interval #nombre").val(par.base[0].trim());
+							}
+							if (par.minimo) {
+								parametro.find("#min").val(par.minimo[0].trim());
+							}
+							if (par.maximo) {
+								parametro.find("#max").val(par.maximo[0].trim());
+							}
+							if (par.decimales) {
+								parametro.find("#decimales").val(par.decimales[0].trim());
+							}
+						}
+					}
+				}
+
+				if (ejercicio.computo){
+					$('#agregar_computo').find(".computo").remove()
+					for (var i = 0; i < ejercicio.computo.length; i++) {
+						computo = agregar_computo();
+						comp = ejercicio.computo[i];
+						if (comp.base) {
+							computo.find("#nombre").val(comp.base[0].trim());
+						}
+						if (comp.formula) {
+							computo.find("#formula").val(comp.formula[0].trim());
+						}
+						if (comp.decimales) {
+							computo.find("#decimales").val(comp.decimales[0].trim());
+						}
+					}
+				}
+			}
+
+			function cargar_ejercicio(cargando) {
+				if(cargando){
+					$("#cargar").hide();
+					$("#cancelar_carga").show();
+					$("#fileInput").show();
+				} else {
+					$("#cancelar_carga").hide();
+					$("#fileInput").hide();
+					$("#fileInput").val("");
+					$("#cargar").show();
+				}
+			}
+
+			function descargar() {
+				if (consistente()) {
+
+					var correcto = true
+
+					text = "Titulo: " + titulo.val() + "\n";
+					text += "Problema: " + problema.innerText + "\n";
+					text += "Solución: " + solucion.innerText + "\n";
+
+					// Distractores
+					distractores = document.getElementsByName('distractor');
+					for (distractor_index in distractores) {
+						var distractor = distractores[distractor_index];
+						if (distractor && distractor.innerText){
+							text += "Distractor: " + distractor.innerText + "\n";
+						}
+					}
+
+					text += '\n';
+
+					// Variables
+					// Parametros
+					$('.parametro').each( function (index, param) {
+						var param = $(param);
+						var interval = param.find('input[name=type_' + param.attr('id') + ']:checked').val();
+						if (interval == 'intervalo'){
+							var nombre = param.find(".interval #nombre");
+							var min = param.find("#min");
+							var max = param.find("#max");
+							var dec = param.find("#decimales");
+
+							if (!nombre.val()) {
+								correcto = false;
+								alert('El parametro #' + (index + 1) + ' no tiene nombre.');
+							}
+
+							if (min.val() >= max.val()) {
+								correcto = false;
+								alert('En parametro #' + (index + 1) + ', minimo debe ser menor que maximo.');
+							}
+							
+							text += "Parametro: " + nombre.val() + "\n";
+							if(min.val()) {
+								text += "Mínimo: " + min.val() + "\n";	
+							}
+							if(max.val()) {
+								text += "Máximo: " + max.val() + "\n";	
+							}
+							if(dec.val()) {
+								text += "Decimales: " + dec.val() + "\n";	
+							}	
+						} else {
+							var nombre = param.find(".set #nombre");
+							
+							if (!nombre.val()) {
+								correcto = false;
+								alert('El parametro #' + (index + 1) + ' no tiene nombre.');
+							}
+
+							text += "Parametro: " + nombre.val() + "\n";
+							text += "Conjunto: " + _.map(param.find('.numero_conjunto'), function(elem) { return $(elem).val() }).join(", ") + "\n";
+						}
+						
+						text += '\n';
+					});
+
+					text += '\n';
+
+					// Computos
+					$('.computo').each( function (index) {
+						var nombre = $( this ).find("#nombre");
+						var formula = $( this ).find("#formula");
+						var dec = $( this ).find("#decimales");
+
+						if (!nombre.val()) {
+							correcto = false;
+							alert('El computo #' + (index + 1) + ' no tiene nombre.');
+						}
+						
+						if (!formula.val()) {
+							correcto = false;
+							alert('El computo #' + (index + 1) + ' no tiene una formula asocida.');
+						}
+						
+						text += "Computo: " + nombre.val() + "\n";
+						text += "Formula: " + formula.val() + "\n";
+
+						if(dec.val()) {
+							text += "Decimales: " + dec.val() + "\n\n";	
+						}
+
+					});
+
+					if(correcto){
+						var element = document.createElement('a');
+						element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+						element.setAttribute('download', titulo.val() + ".txt");
+
+						element.style.display = 'none';
+						document.body.appendChild(element);
+
+						element.click();
+
+						document.body.removeChild(element);
+					}
+				}
+			}
+
+			var parametro_numero = 0;
+
+			function agregar_nodo_removible(que){
+				que.append($('<div class="eliminar">eliminar 🗑</div>').click(function(){
+					que.remove()
+				}))
+			}
+
+			function agregar_numero_set(numero) {
+				return numero_set = $('<span class="container_numero"></span>').append(
+					$('<span>(X)</span>').click(function () { numero_set.remove(); }),
+					$('<input type="number" class="numero_conjunto" step="0.01">').val(numero)
+				)
+			}
+
+			function agregar_parametro(){
+
+				var set = $('<div class="set"><input type="text" placeholder="Nombre" id="nombre" name="nombre"> = </div>').append(
+					agregar_numero_set(),
+					$("<button>+</button>").click(function (evt){ 
+							$(evt.target).before(agregar_numero_set());
+						})
+				);
+				
+				var interval = $('<div class="interval">\
+					<input class="centered" type="number" step="0.01" id="min" name="min" placeholder="Mínimo"> ≤\
+					<input class="centered" type="text" id="nombre" name="nombre" placeholder="Nombre parámetro"> ≤\
+					<input class="centered" type="number" step="0.01" placeholder="Máximo" id="max" name="max">\
+					<select id="decimales" name="decimales">\
+						<option value="0">Entero</option>\
+						<option value="1">1 decimal</option>\
+						<option value="2" selected>2 decimales</option>\
+						<option value="3">3 decimales</option>\
+						<option value="4">4 decimales</option>\
+						<option value="5">5 decimales</option>\
+					</select>\
+				</div>');
+				
+				var parametro = $('<div class="subseccion parametro" id="' + parametro_numero +'"></div>').append(
+					$('<input type="radio" name="type_' + parametro_numero + '" id="interval" value="intervalo" checked>').click(function () {
+						interval.show();
+						set.hide();
+					}),
+					$('<label for="interval">Intervalo</label>'),
+					$('<input type="radio" name="type_' + parametro_numero + '" id="set" value="set">').click(function () {
+						interval.hide();
+						set.show();
+					}),
+					$('<label for="conjunto">Conjunto</label>'),
+					interval,
+					set.hide()
+				);
+
+				agregar_nodo_removible(parametro);
+				$('#parametros').append(parametro);
+				parametro_numero += 1;
+				return parametro 	
+			}
+
+			function estandarizar_numero(numero_in) {
+				var numero_out = numero_in.substitute(",", ".");
+				return numero_out;
+			}
+
+			$('#agregar_parametro').click(agregar_parametro)
+
+			function agregar_elemento_set(){
+				
+			}
+
+			function agregar_computo(){
+				var computo = $('\
+					<div class="subseccion computo">\
+						<input class="centered" type="text" id="nombre" name="nombre" placeholder="Nombre cómputo"> =\
+						<input class="centered" type="text" id="formula" placeholder="Fórmula" name="max_parametro">\
+						<select id="decimales" name="decimales">\
+							<option value="0">Entero</option>\
+							<option value="1">1 decimal</option>\
+							<option value="2" selected>2 decimales</option>\
+							<option value="3">3 decimales</option>\
+							<option value="4">4 decimales</option>\
+							<option value="5">5 decimales</option>\
+						</select>\
+					</div>');
+				agregar_nodo_removible(computo)
+				$('#computos').append(computo)
+				return computo 
+			}
+
+			$('#agregar_computo').click(agregar_computo)
+
+			function renderizar(evt) {
+				in_elem = $(evt.target || evt).hide();
+				texto = in_elem.get(0).innerText.replace("&", "\\&");
+				out_elem = in_elem.next()
+				out_elem.get(0).innerText = texto
+				renderMathInElement(out_elem.show().get(0), {'delimiters': [
+				  {left: "$$", right: "$$", display: true},
+				  {left: "\\[", right: "\\]", display: true},
+				  {left: "\\(", right: "\\)", display: false},
+				  {left: "$", right: "$", display: false}
+				]});
+			}
+
+ 			function aplanar(evt){
+ 				var output = $(evt.target);
+ 				if(!output.hasClass('out')){
+ 					output = output.closest('.out');
+ 				}
+ 				var input = output.prev();
+				output.hide();
+				input.show().focus();
+			};
+
+			$(".latex.in").blur(renderizar);
+			$(".latex.out").dblclick(aplanar);
+
+			function nuevo_distractor(text_in){
+				var texto = "";
+				if (typeof(text_in) == "string"){
+					text = text_in;
+				}
+				var distractor = $('<span class="subseccion distractor"></span>')
+				distractor.append(
+						$('<div class="latex in" id="xxx" name="distractor" contenteditable="true">' + texto + '</div>').blur(renderizar),
+						$('<div class="latex out" style="display: none;">' + texto + '</div>').dblclick(aplanar)
+				);
+				agregar_nodo_removible(distractor);
+				$('#distractores').append(distractor);
+				return distractor.find('.latex.in').get(0);
+			}
+
+			$('#agregar_distractor').click(nuevo_distractor)
+		</script>
+	</body>
+</html>

@@ -1,0 +1,43 @@
+Exámen Diciembre Facultad de Arquitectra.
+Cátedra de Matemática.
+
+Titulo: Integral indefinida
+
+Problema:
+
+La función $$F(x)= \int_{&limiteinferior}^{x}{(|&constanteintegracion-x|-x)dx}$$ admite para $x \leq &menorigual$ una expresión $F(x)=ax^2+bx + c$, en forma de un polinomo de grado menor o igual a 2. 
+
+Determinar la suma $a + b + c$ de los coeficientes de ese polinomio.
+
+Solución: &correcto
+
+Distractor: &distractor_a 
+Distractor: &distractor_b 
+Distractor: Ningúna de las demás es correcta
+
+Parámetro: limiteinferior
+Máximo: -1
+Minimo: -10
+Decimales:1
+
+Parámetro: constanteintegracion
+Máximo: 1
+Minimo: 20
+Decimales:1
+
+Parámetro: menorigual
+Máximo: 1
+Minimo: 3
+Decimales:1
+
+Computo: correcto
+Fórmula: limiteinferior*constanteintegracion-menorigual
+Decimales:2
+
+Computo: distractor_a
+Fórmula: limiteinferior*constanteintegracion
+Decimales:2
+
+Computo: distractor_b
+Fórmula: limiteinferior*menorigual
+Decimales:2

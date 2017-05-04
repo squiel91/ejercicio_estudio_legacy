@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+			<quiz>
+			<question type="category">
+				<category>
+					<text>$course$/Examen un ejercicio</text>
+				</category>
+			</question><question type="calculatedmulti"><name><text>Ejercicio</text></name><questiontext format="moodle_auto_format"><text>Calcular el área de un trapecio de bases {Bat} y {bu} y altura {h}.</text></questiontext>
+			<generalfeedback format="moodle_auto_format"><text/></generalfeedback>
+			<defaultgrade>1.0000000</defaultgrade>
+			<penalty>0.3333333</penalty>
+			<hidden>0</hidden>
+			<synchronize>0</synchronize>
+			<single>1</single>
+			<answernumbering>abc</answernumbering>
+			<shuffleanswers>1</shuffleanswers>
+			<correctfeedback><text>Correcta.</text></correctfeedback>
+			<partiallycorrectfeedback><text>Parcialmente correcto.</text></partiallycorrectfeedback>
+			<incorrectfeedback><text>Incorrecto.</text></incorrectfeedback>
+			<answer fraction="100">
+				<text>{=({Bat}+{bu})*{h}/2} cm2.</text>
+				<tolerance>0.01</tolerance>
+				<tolerancetype>1</tolerancetype>
+				<correctanswerformat>1</correctanswerformat>
+				<correctanswerlength>2</correctanswerlength>
+				<feedback format="moodle_auto_format"><text/></feedback>
+			</answer>
+				<answer fraction="0">
+					<text>{=({Bat}+{bu})*{h}} cm2.</text>
+					<tolerance>0.01</tolerance>
+					<tolerancetype>1</tolerancetype>
+					<correctanswerformat>1</correctanswerformat>
+					<correctanswerlength>2</correctanswerlength>
+					<feedback format="moodle_auto_format"><text/></feedback>
+				</answer>
+				<answer fraction="0">
+					<text>{={Bat}*{h}/2} cm2.</text>
+					<tolerance>0.01</tolerance>
+					<tolerancetype>1</tolerancetype>
+					<correctanswerformat>1</correctanswerformat>
+					<correctanswerlength>2</correctanswerlength>
+					<feedback format="moodle_auto_format"><text/></feedback>
+				</answer><dataset_definitions>
+			<dataset_definition>
+				<status><text>private</text></status>
+				<name><text>Bat</text></name>
+				<type>calculatedsimple</type>
+				<distribution><text>uniform</text></distribution>
+				<minimum><text>2</text></minimum>
+				<maximum><text>25</text></maximum>
+				<decimals><text>2</text></decimals>
+				<itemcount>3</itemcount>
+				<dataset_items>
+			<dataset_item>
+				<number>1</number>
+				<value>8.1</value>
+			</dataset_item>
+			<dataset_item>
+				<number>2</number>
+				<value>7.61</value>
+			</dataset_item>
+			<dataset_item>
+				<number>3</number>
+				<value>19.11</value>
+			</dataset_item>
+				</dataset_items>
+				<number_of_items>3</number_of_items>
+			</dataset_definition>
+			<dataset_definition>
+				<status><text>private</text></status>
+				<name><text>bu</text></name>
+				<type>calculatedsimple</type>
+				<distribution><text>uniform</text></distribution>
+				<minimum><text>1</text></minimum>
+				<maximum><text>10</text></maximum>
+				<decimals><text>2</text></decimals>
+				<itemcount>3</itemcount>
+				<dataset_items>
+			<dataset_item>
+				<number>1</number>
+				<value>6.49</value>
+			</dataset_item>
+			<dataset_item>
+				<number>2</number>
+				<value>7.75</value>
+			</dataset_item>
+			<dataset_item>
+				<number>3</number>
+				<value>2.39</value>
+			</dataset_item>
+				</dataset_items>
+				<number_of_items>3</number_of_items>
+			</dataset_definition>
+			<dataset_definition>
+				<status><text>private</text></status>
+				<name><text>h</text></name>
+				<type>calculatedsimple</type>
+				<distribution><text>uniform</text></distribution>
+				<minimum><text>1</text></minimum>
+				<maximum><text>5</text></maximum>
+				<decimals><text>2</text></decimals>
+				<itemcount>3</itemcount>
+				<dataset_items>
+			<dataset_item>
+				<number>1</number>
+				<value>3.13</value>
+			</dataset_item>
+			<dataset_item>
+				<number>2</number>
+				<value>1.49</value>
+			</dataset_item>
+			<dataset_item>
+				<number>3</number>
+				<value>1.28</value>
+			</dataset_item>
+				</dataset_items>
+				<number_of_items>3</number_of_items>
+			</dataset_definition></dataset_definitions></question></quiz>

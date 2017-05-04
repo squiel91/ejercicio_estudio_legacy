@@ -1,0 +1,61 @@
+Exámen Diciembre Facultad de Arquitectra.
+Cátedra de Matemática.
+
+Titulo: Diametro cuadraedro
+
+Problema:
+
+En este ejercicio consideraremos la proyección estereográfica en la que cada punto $P$ del espacio $(x, y, z)$, que no pertenezca semieje $z \geq 0$ del eje $Oz$, se proyecta primero sobre el punto $P'$ que es el más próximo a $P$ sobre la esfera de centro $O = (0, 0, 0)$ y radio $&radio$. 
+
+A continuación este punto $P'$ se proyecta desde el zenit $Z = (&p_x, &p_y, &p_z)$ sobre el plano Oxy de ecuación $z = 0$. 
+
+Determinar la proyección $P''$ que corresponde a $P = (-1, 2, -2)$.
+
+Solucion: (&sol_x, &sol_y)
+Distractor: (&dis_1_x, &dis_1_y)
+Distractor: (&dis_2_x, &dis_2_y)
+Distractor: (&dis_3_x, &dis_3_y)
+
+Parametro: radio
+Maximo: 1
+Minimo: 5
+Decimales: 1
+
+Parametro: p_x
+Maximo: 3
+Minimo: -3
+Decimales: 1
+
+Parametro: p_y
+Maximo: 3
+Minimo: -3
+Decimales: 1
+
+Parametro: p_z
+Maximo: 3
+Minimo: -3
+Decimales: 1
+
+Computo: sol_x
+formula: (pow(radio,2)) * pi + cos(p_x * p_z)
+
+Computo: sol_y
+formula: sin(p_x * p_z)
+
+Computo: dis_1_x
+formula: cos(p_x * p_z)
+
+Computo: dis_1_y
+formula: tan(p_x * p_z)
+
+Computo: dis_2_x
+formula: sin(p_x * p_z)
+
+Computo: dis_2_y
+formula: cos(p_y * p_z)
+
+Computo: dis_3_x
+formula: cos(p_x * p_z) + 0.5
+
+Computo: dis_3_y
+formula: cos(p_x * p_z) + 2

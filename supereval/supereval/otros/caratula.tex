@@ -1,0 +1,428 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[spanish]{babel}
+\usepackage[latin1]{inputenc}
+
+\usepackage{graphicx}
+\usepackage{pstricks-add}
+\usepackage{multicol}
+\usepackage{array}
+\usepackage{multirow}
+
+
+\hoffset = -.5in \marginparwidth = 0cm \evensidemargin = 0cm
+\marginparpush = 0cm
+
+\voffset = -1in
+
+\textwidth 17cm \textheight 25cm
+
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+\newcounter{figura}
+\renewcommand*{\thefigura}{\arabic{figura}}
+
+
+\newcommand{\columnas}{\mathrm{col}}
+\newcommand{\imagen}{\mathrm{im}}
+\newcommand{\filas}{\mathrm{fil}}
+\newcommand{\coord}{\mathrm{coord}}
+\newcommand{\rango}{\mathrm{r}}
+\newcommand{\sda}{\hspace{14.8cm}\phantom{.}} %Sangría derecha de 14cm para Opciones
+\newcommand{\sdb}{\hspace{14.5cm}\phantom{.}} %Sangría derecha de 13cm para Opciones
+\newcommand{\sdc}{\hspace{14.0cm}\phantom{.}} %Sangría derecha de 12cm para Opciones
+\newcommand{\sdd}{\hspace{13.5cm}\phantom{.}} %Sangría derecha de 11cm para Opciones
+\newcommand{\sde}{\hspace{13.0cm}\phantom{.}} %Sangría derecha de 11cm para Opciones
+
+\renewcommand{\sin}{\, \mathrm{sen}}
+
+\renewcommand{\theenumi}{\Alph{enumi}}
+\begin{document}
+\pagestyle{plain}
+
+
+\newtheorem {Ejercicio}{Ejercicio}
+\newenvironment{ejercicio}{\begin{Ejercicio} \rm}{\rm\end{Ejercicio}}
+\newtheorem {Quiz}[Ejercicio]{Ejercicio *}
+\newenvironment{quiz}{\begin{Quiz} \rm}{\rm\end{Quiz}}
+\newtheorem{Lectura}{Lectura}
+\newenvironment{lectura}{\begin{lectura} \rm}{\rm\end{lectura}}
+
+\newtheorem {Pregunta}{Pregunta}
+\newenvironment{pregunta}{\begin{Pregunta} \rm}{\rm\end{Pregunta}}
+
+\newenvironment{opciones}{\begin{enumerate}\renewcommand{\theenumi}{\Alph{enumi}}}
+{\end{enumerate}\renewcommand{\theenumi}{\roman{enumi}}}
+
+
+\newtheorem{proposicion}{Proposición}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                       COMANDOS PARA LA CARATULA                                         %% 
+
+\newcommand{\semestre}{2016 - Primer semestre}   %año y semestre en que se toma la prueba
+\newcommand{\prueba}{PARCIAL 3}           % tipo y numero de prueba
+\newcommand{\fecha}{9 de julio de 2016}   % fecha de la prueba
+\newcommand{\anterioraprimerapregunta}{0} % fija la numeracion. Hay que poner aqui el número anterior al de la primera pregunta
+
+%\begin{center}
+%\textbf{Nro. de asiento} \\
+%\framebox{\rule{0cm}{2cm}\rule{3cm}{0cm}}
+%\end{center}
+%\medskip
+
+\hrule
+
+\medskip
+
+\noindent \textbf{Cátedra de Matemática}
+ \hfill \textbf{Facultad de Arquitectura, Diseño y Urbanismo}
+
+\hfill \textbf{Universidad de la República}
+
+\smallskip
+
+\begin{center}
+\noindent \large\bf{Matemática}
+ \hfill \textbf{\semestre}
+
+\medskip
+\hrule \bigskip
+
+ {\large\sc  \prueba -- \fecha}
+
+\end{center}
+
+
+\hrule
+\bigskip
+
+\noindent
+\begin{center}
+\begin{tabular}{|c|cc|cc}
+\cline{1-1}
+Nro. Asiento & & Grupo & Cédula: &
+\\
+\cline{1-1} \cline{5-5}
+\rule{0cm}{.8cm}& & & &
+\\
+\rule{3cm}{0cm} &   & Equipo & Apellidos: &
+\\
+ \cline{5-5}
+\rule{0cm}{.8cm} & & \rule{3cm}{0cm}& &
+\\
+ &  &  & Nombres: & \rule{6cm}{0cm}
+\\
+\cline{1-1} \cline{3-3} \cline{5-5}
+\end{tabular}
+\end{center}
+\bigskip
+
+
+
+\noindent \begin{center} {\large \bf TABLA DE RESPUESTAS}
+
+\medskip
+
+\textbf{\begin{tabular}{l|c|c|c|c|c|c|c|c|c|c|c}
+Pregunta & \ref{P1} & \ref{P2} & \ref{P3} & \ref{P4} & \ref{P5} & \ref{P6} & \ref{P7}& \ref{P8} & \ref{P9} & \ref{P10}
+\\
+Respuesta \rule[-.4cm]{0cm}{1cm}  & \rule{.6cm}{0cm} &
+\rule{.6cm}{0cm} & \rule{.6cm}{0cm} & \rule{.6cm}{0cm} &
+\rule{.6cm}{0cm} & \rule{.6cm}{0cm} & \rule{.6cm}{0cm} &
+\rule{.6cm}{0cm} & \rule{.6cm}{0cm} & \rule{.6cm}{0cm} &
+\end{tabular}}
+\end{center}
+
+\medskip
+\hrule
+\medskip
+
+\noindent \textbf{Instrucciones:}
+\begin{itemize}
+\item
+Para cada pregunta que decidas contestar:
+\begin{itemize}
+\item
+Colocar la letra de la opción seleccionada en la TABLA DE
+RESPUESTAS. \textbf{Sólo tomaremos en cuenta las respuestas marcadas
+en la tabla. Recuerda poner aquí TODAS las respuestas a las
+preguntas que quieras contestar}.
+\item
+Transcribir una síntesis de tu trabajo al espacio reservado (te
+recomendamos utilizar esta instancia de resumir para repasar y
+verificar el trabajo hecho). \textbf{Sólo se tendrán en cuenta
+respuestas a preguntas que estén acompañadas en el espacio
+correspondiente de una argumentación que justifique la opción
+seleccionada}.
+\end{itemize}
+\item
+Cada pregunta tiene una única opción correcta.
+\item
+Todas las preguntas tienen igual valor.
+\item
+Durante el parcial podrás consultar material de apoyo y usar
+calculadoras, de uso estrictamente personal.
+%\item
+\item
+Esta instancia de evaluación es estrictamente individual.
+%Las respuestas equivocadas tienen una penalización del 15\%\ del valor de la pregunta.
+%\item
+%Los resultados serán publicados en la página web de la
+%Cátedra.
+\item \textbf{Copia y guarda tus respuestas}.
+\item Te recomendamos que trabajes en tu cuaderno, manteniendo registros ordenados de lo que
+hiciste durante la prueba. La C\'atedra har\'a devoluciones sobre este trabajo
+ y deberás volver sobre él si deseas acceder a la \textbf{recuperación}.
+%\textbf{Para la recuperación de este parcial seremos más estrictos en el control de la revisión del trabajo hecho durante el parcial.}
+%\item
+\end{itemize}
+\hrule
+
+
+
+\pagebreak
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setcounter{Pregunta}{\anterioraprimerapregunta}
+
+%%%%%%%%%%%%%%%%%%  Pregunta 1   %%%%%%%%%%%%%%%%%%
+\hrule
+%\noindent
+
+\begin{pregunta}
+\label{P1}
+
+
+ENUNCIADO DE LA PREGUNTA
+
+\begin{opciones}
+\item	
+\item	
+\item	
+\item	
+\end{opciones}
+\vfill
+\hfill
+\framebox{\rule{0cm}{1cm}\rule{1cm}{0cm}}
+\end{pregunta}
+\hrule
+
+
+%%%%%%%%%%%%%%%%%%  Pregunta 2   %%%%%%%%%%%%%%%%%%
+
+
+
+\begin{pregunta}
+\label{P2}
+
+ENUNCIADO DE LA PREGUNTA
+
+\begin{opciones}
+\item	
+\item	
+\item	
+\item	
+\end{opciones}
+\vfill
+\hfill
+\framebox{\rule{0cm}{1cm}\rule{1cm}{0cm}}
+\end{pregunta}
+\hrule
+
+
+
+\pagebreak
+
+
+%%%%%%%%%%%%%%%%%%  Pregunta 3   %%%%%%%%%%%%%%%%%%
+\hrule
+
+\begin{pregunta}
+\label{P3}
+
+ENUNCIADO DE LA PREGUNTA
+\begin{opciones}
+\item	
+\item	
+\item	
+\item	
+\end{opciones}
+\vfill
+\hfill
+\framebox{\rule{0cm}{1cm}\rule{1cm}{0cm}}
+\end{pregunta}
+\hrule
+
+%%%%%%%%%%%%%%%%%%  Pregunta 4   %%%%%%%%%%%%%%%%%%
+
+
+\begin{pregunta}
+\label{P4}
+
+
+ENUNCIADO DE LA PREGUNTA
+
+\begin{opciones}
+\item	
+\item	
+\item	
+\item	
+\end{opciones}
+\vfill
+\hfill
+\framebox{\rule{0cm}{1cm}\rule{1cm}{0cm}}
+\end{pregunta}
+
+\hrule
+
+\pagebreak
+
+\hrule
+%%%%%%%%%%%%%%%%%%  Pregunta 5   %%%%%%%%%%%%%%%%%%
+
+\begin{pregunta}
+\label{P5}
+
+
+ENUNCIADO DE LA PREGUNTA
+
+\begin{opciones}
+\item	
+\item	
+\item	
+\item	
+\end{opciones}
+\vfill
+\hfill
+\framebox{\rule{0cm}{1cm}\rule{1cm}{0cm}}
+\end{pregunta}
+\hrule
+
+
+%%%%%%%%%%%%%%%%%%  Pregunta 6   %%%%%%%%%%%%%%%%%%
+\hrule
+%\noindent
+\begin{pregunta}
+\label{P6}
+
+
+ENUNCIADO DE LA PREGUNTA
+
+\begin{opciones}
+\item	
+\item	
+\item	
+\item	
+\end{opciones}
+\vfill
+\hfill
+\framebox{\rule{0cm}{1cm}\rule{1cm}{0cm}}
+\end{pregunta}
+\hrule
+
+\pagebreak
+%%%%%%%%%%%%%%%%%%  Pregunta 7   %%%%%%%%%%%%%%%%%%
+
+%\noindent
+%\rule{17cm}{0.1cm}
+
+
+\hrule
+\begin{pregunta}
+\label{P7}
+
+
+ENUNCIADO DE LA PREGUNTA
+
+\begin{opciones}
+\item	
+\item	
+\item	
+\item	
+\end{opciones}
+\vfill
+\hfill
+\framebox{\rule{0cm}{1cm}\rule{1cm}{0cm}}
+\end{pregunta}
+
+\hrule
+
+%%%%%%%%%%%%%%%%%%  Pregunta 8   %%%%%%%%%%%%%%%%%%
+
+%\noindent
+\begin{pregunta}
+\label{P8}
+
+
+ENUNCIADO DE LA PREGUNTA
+
+\begin{opciones}
+\item	
+\item	
+\item	
+\item	
+\end{opciones}
+\vfill
+\hfill
+\framebox{\rule{0cm}{1cm}\rule{1cm}{0cm}}
+\end{pregunta}
+\hrule
+
+
+\pagebreak
+
+%%%%%%%%%%%%%%%%%%  Pregunta 9   %%%%%%%%%%%%%%%%%%
+
+
+
+
+\hrule
+
+\begin{pregunta}
+\label{P9}
+
+
+ENUNCIADO DE LA PREGUNTA
+
+\begin{opciones}
+\item	
+\item	
+\item	
+\item	
+\end{opciones}
+\vfill
+\hfill
+\framebox{\rule{0cm}{1cm}\rule{1cm}{0cm}}
+\end{pregunta}
+\hrule
+
+
+%%%%%%%%%%%%%%%%%%  Pregunta 10   %%%%%%%%%%%%%%%%%%
+
+%\noindent
+\begin{pregunta}
+\label{P10}
+
+
+ENUNCIADO DE LA PREGUNTA
+
+\begin{opciones}
+\item	
+\item	
+\item	
+\item	
+\end{opciones}
+\vfill
+\hfill
+\framebox{\rule{0cm}{1cm}\rule{1cm}{0cm}}
+\end{pregunta}
+\hrule
+
+
+
+\end{document} 

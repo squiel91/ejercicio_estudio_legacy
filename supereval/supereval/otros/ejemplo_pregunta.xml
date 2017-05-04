@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+<!-- question: 0  -->
+  <question type="category">
+    <category>
+        <text>$course$/Default for PGAFI</text>
+
+    </category>
+  </question>
+
+<!-- question: 18786  -->
+  <question type="calculated">
+    <name>
+      <text>Cual es el volumen?</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>El volumen de una caja de largo l = {L} y ancho a = {A} es:</p><p><br></p><p><span style="color: rgb(51, 51, 51); font-family: sans-serif; font-size: 14.44px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 20px; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none; ">\( F(x) = 6 + 8x + \int_{-1}^{x}{(-4-t+|10+5t|)dt.} \)</span><br></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <synchronize>0</synchronize>
+    <single>0</single>
+    <answernumbering>abc</answernumbering>
+    <shuffleanswers>1</shuffleanswers>
+    <correctfeedback>
+      <text></text>
+    </correctfeedback>
+    <partiallycorrectfeedback>
+      <text></text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback>
+      <text></text>
+    </incorrectfeedback>
+<answer fraction="100">
+    <text>{L}*{A}</text>
+    <tolerance>0.1</tolerance>
+    <tolerancetype>1</tolerancetype>
+    <correctanswerformat>1</correctanswerformat>
+    <correctanswerlength>2</correctanswerlength>
+    <feedback format="html">
+<text></text>
+    </feedback>
+</answer>
+    <unitgradingtype>0</unitgradingtype>
+    <unitpenalty>0.1000000</unitpenalty>
+    <showunits>3</showunits>
+    <unitsleft>0</unitsleft>
+<dataset_definitions>
+<dataset_definition>
+    <status><text>private</text>
+</status>
+    <name><text>L</text>
+</name>
+    <type>calculated</type>
+    <distribution><text>uniform</text>
+</distribution>
+    <minimum><text>5</text>
+</minimum>
+    <maximum><text>12</text>
+</maximum>
+    <decimals><text>0</text>
+</decimals>
+    <itemcount>1</itemcount>
+    <dataset_items>
+        <dataset_item>
+           <number>1</number>
+           <value>8</value>
+        </dataset_item>
+    </dataset_items>
+    <number_of_items>1</number_of_items>
+</dataset_definition>
+<dataset_definition>
+    <status><text>shared</text>
+</status>
+    <name><text>A</text>
+</name>
+    <type>calculated</type>
+    <distribution><text>uniform</text>
+</distribution>
+    <minimum><text>0</text>
+</minimum>
+    <maximum><text>1</text>
+</maximum>
+    <decimals><text>1</text>
+</decimals>
+    <itemcount>1</itemcount>
+    <dataset_items>
+        <dataset_item>
+           <number>1</number>
+           <value>0.1</value>
+        </dataset_item>
+    </dataset_items>
+    <number_of_items>1</number_of_items>
+</dataset_definition>
+</dataset_definitions>
+  </question>
+
+<!-- question: 18789  -->
+  <question type="calculatedmulti">
+    <name>
+      <text>Calculated multichoice question B</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>This is other one</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <synchronize>0</synchronize>
+    <single>1</single>
+    <answernumbering>abc</answernumbering>
+    <shuffleanswers>1</shuffleanswers>
+    <correctfeedback>
+      <text>Your answer is correct.</text>
+    </correctfeedback>
+    <partiallycorrectfeedback>
+      <text>Your answer is partially correct.</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback>
+      <text>Your answer is incorrect.</text>
+    </incorrectfeedback>
+<answer fraction="100">
+    <text>The right answer {foo}</text>
+    <tolerance>0.01</tolerance>
+    <tolerancetype>1</tolerancetype>
+    <correctanswerformat>1</correctanswerformat>
+    <correctanswerlength>2</correctanswerlength>
+    <feedback format="html">
+<text></text>
+    </feedback>
+</answer>
+<answer fraction="0">
+    <text>The incorrect answer</text>
+    <tolerance>0.01</tolerance>
+    <tolerancetype>1</tolerancetype>
+    <correctanswerformat>1</correctanswerformat>
+    <correctanswerlength>2</correctanswerlength>
+    <feedback format="html">
+<text></text>
+    </feedback>
+</answer>
+<dataset_definitions>
+<dataset_definition>
+    <status><text>private</text>
+</status>
+    <name><text>foo</text>
+</name>
+    <type>calculatedsimple</type>
+    <distribution><text>uniform</text>
+</distribution>
+    <minimum><text>1</text>
+</minimum>
+    <maximum><text>10</text>
+</maximum>
+    <decimals><text>1</text>
+</decimals>
+    <itemcount>1</itemcount>
+    <dataset_items>
+        <dataset_item>
+           <number>1</number>
+           <value>7.9</value>
+        </dataset_item>
+    </dataset_items>
+    <number_of_items>1</number_of_items>
+</dataset_definition>
+</dataset_definitions>
+  </question>
+
+<!-- question: 18787  -->
+  <question type="calculatedmulti">
+    <name>
+      <text>Multichoice question</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Multichoice question.<br></p><p>Una formuala random:&nbsp;\(  \int_{<span style="color: rgb(51, 51, 51); font-family: sans-serif; font-size: 14.44px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;  display: inline !important; float: none;">{largo}</span>}^{b}{c}  \)</p><p><span style="font-size: 14.44px;">{largo}&nbsp;</span><br></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <synchronize>0</synchronize>
+    <single>1</single>
+    <answernumbering>abc</answernumbering>
+    <shuffleanswers>1</shuffleanswers>
+    <correctfeedback>
+      <text>Your answer is correct.</text>
+    </correctfeedback>
+    <partiallycorrectfeedback>
+      <text>Your answer is partially correct.</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback>
+      <text>Your answer is incorrect.</text>
+    </incorrectfeedback>
+<answer fraction="100">
+    <text>{largo}</text>
+    <tolerance>0.01</tolerance>
+    <tolerancetype>1</tolerancetype>
+    <correctanswerformat>1</correctanswerformat>
+    <correctanswerlength>2</correctanswerlength>
+    <feedback format="html">
+<text></text>
+    </feedback>
+</answer>
+<answer fraction="0">
+    <text>No es correcta</text>
+    <tolerance>0.01</tolerance>
+    <tolerancetype>1</tolerancetype>
+    <correctanswerformat>1</correctanswerformat>
+    <correctanswerlength>2</correctanswerlength>
+    <feedback format="html">
+<text></text>
+    </feedback>
+</answer>
+<dataset_definitions>
+<dataset_definition>
+    <status><text>private</text>
+</status>
+    <name><text>largo</text>
+</name>
+    <type>calculatedsimple</type>
+    <distribution><text>uniform</text>
+</distribution>
+    <minimum><text>1.0</text>
+</minimum>
+    <maximum><text>10.0</text>
+</maximum>
+    <decimals><text>1</text>
+</decimals>
+    <itemcount>0</itemcount>
+</dataset_definition>
+</dataset_definitions>
+  </question>
+
+<!-- question: 18788  -->
+  <question type="calculatedmulti">
+    <name>
+      <text>multichoice question name A</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p><span style="color: rgb(68, 68, 68); font-family: sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: bold; letter-spacing: normal; line-height: 20px; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none; ">Question text {variable1} and {variable2} con la formula en latex cool&nbsp;<span style="color: rgb(68, 68, 68); font-family: sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: bold; letter-spacing: normal; line-height: 20px; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none; ">\( x=\frac{1+y}{1+2z^2} \)&nbsp;</span>es esta.</span><br></p><p><span style="color: rgb(68, 68, 68); font-family: sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: bold; letter-spacing: normal; line-height: 20px; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none; "><span style="color: rgb(68, 68, 68); font-family: sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: bold; letter-spacing: normal; line-height: 20px; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none; ">\( x=\frac{1+y}{1+2z^2} \)</span><br></span></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <synchronize>0</synchronize>
+    <single>1</single>
+    <answernumbering>abc</answernumbering>
+    <shuffleanswers>1</shuffleanswers>
+    <correctfeedback>
+      <text>Your answer is correct.</text>
+    </correctfeedback>
+    <partiallycorrectfeedback>
+      <text>Your answer is partially correct.</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback>
+      <text>Your answer is incorrect.</text>
+    </incorrectfeedback>
+<answer fraction="0">
+    <text>La respuesta 1 es {={variable1}*{variable1}}</text>
+    <tolerance>0.01</tolerance>
+    <tolerancetype>1</tolerancetype>
+    <correctanswerformat>1</correctanswerformat>
+    <correctanswerlength>3</correctanswerlength>
+    <feedback format="html">
+<text><![CDATA[<p>This is the feedback for the firsts</p>]]></text>
+    </feedback>
+</answer>
+<answer fraction="100">
+    <text>La respuesta 2 es {={variable1}*{variable2}}</text>
+    <tolerance>0.01</tolerance>
+    <tolerancetype>1</tolerancetype>
+    <correctanswerformat>1</correctanswerformat>
+    <correctanswerlength>2</correctanswerlength>
+    <feedback format="html">
+<text></text>
+    </feedback>
+</answer>
+<answer fraction="0">
+    <text>La respuesta 3 es {={variable2}*{variable2}}</text>
+    <tolerance>0.01</tolerance>
+    <tolerancetype>1</tolerancetype>
+    <correctanswerformat>1</correctanswerformat>
+    <correctanswerlength>2</correctanswerlength>
+    <feedback format="html">
+<text></text>
+    </feedback>
+</answer>
+<dataset_definitions>
+<dataset_definition>
+    <status><text>private</text>
+</status>
+    <name><text>variable1</text>
+</name>
+    <type>calculatedsimple</type>
+    <distribution><text>uniform</text>
+</distribution>
+    <minimum><text>1</text>
+</minimum>
+    <maximum><text>10</text>
+</maximum>
+    <decimals><text>2</text>
+</decimals>
+    <itemcount>1</itemcount>
+    <dataset_items>
+        <dataset_item>
+           <number>1</number>
+           <value>4.94</value>
+        </dataset_item>
+    </dataset_items>
+    <number_of_items>1</number_of_items>
+</dataset_definition>
+<dataset_definition>
+    <status><text>private</text>
+</status>
+    <name><text>variable2</text>
+</name>
+    <type>calculatedsimple</type>
+    <distribution><text>uniform</text>
+</distribution>
+    <minimum><text>9.5</text>
+</minimum>
+    <maximum><text>12.7</text>
+</maximum>
+    <decimals><text>1</text>
+</decimals>
+    <itemcount>1</itemcount>
+    <dataset_items>
+        <dataset_item>
+           <number>1</number>
+           <value>12.7</value>
+        </dataset_item>
+    </dataset_items>
+    <number_of_items>1</number_of_items>
+</dataset_definition>
+</dataset_definitions>
+    <tags>
+      <tag><text>CoolTag</text>
+</tag>
+    </tags>
+  </question>
+
+<!-- question: 18785  -->
+  <question type="multichoice">
+    <name>
+      <text>question name 1</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>Hey ho lets go</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text></text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <single>true</single>
+    <shuffleanswers>true</shuffleanswers>
+    <answernumbering>abc</answernumbering>
+    <correctfeedback format="html">
+      <text>Your answer is correct.</text>
+    </correctfeedback>
+    <partiallycorrectfeedback format="html">
+      <text>Your answer is partially correct.</text>
+    </partiallycorrectfeedback>
+    <incorrectfeedback format="html">
+      <text>Your answer is incorrect.</text>
+    </incorrectfeedback>
+    <shownumcorrect/>
+    <answer fraction="100" format="html">
+      <text><![CDATA[<p>Option 1</p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+    <answer fraction="0" format="html">
+      <text><![CDATA[<p>Option 2</p>]]></text>
+      <feedback format="html">
+        <text></text>
+      </feedback>
+    </answer>
+  </question>
+
+</quiz>

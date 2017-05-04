@@ -1,0 +1,61 @@
+﻿Titulo: Área de un rectángulo
+
+
+Problema: Hallar el área de un rectángulo de base &b y altura &h
+
+
+Solución: &area
+
+
+Distractor: &perimetro
+Distractor: &semiperimetro
+Distractor: &triangul
+
+
+
+Parametro: b
+
+Mínimo: 0
+
+Máximo: 10
+
+Decimales: 2
+
+
+
+Parametro: h
+
+Conjunto: 1, 2.2, 3.33, 4.444
+
+
+
+Computo: area
+Formula: b*h
+Decimales: 2
+
+
+
+
+
+Computo: perimetro
+
+Formula: 2*(b+h)
+
+Decimales: 2
+
+
+
+Computo: semiperimetro
+
+Formula: b+h * perimetro
+
+Decimales: 2
+
+
+
+Computo: triangul
+
+Formula: b*h/2
+
+Decimales: 2
+

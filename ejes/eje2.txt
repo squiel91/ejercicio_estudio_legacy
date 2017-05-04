@@ -1,0 +1,29 @@
+Esto es el preambulo
+
+problema: 
+
+El area de la plancha de contruccion con la formula $x=\frac{1+y}{1+2z^2}$ de largo &largo m y ancho &ancho m.
+
+
+Como ayuda se sabe que la altura es muy elevada
+
+
+Comentario: esto no si esta bien
+esto tambien es un vcomentario
+
+
+      fdf
+solución : solu respuesta &respu
+	distractor     :     	 dist1
+	distractor:
+Hello
+
+Cómputo: respu
+	formula: largo * ancho
+
+parametro: largo
+maximo: 50
+decimales: 3
+
+  parametro: ancho
+
