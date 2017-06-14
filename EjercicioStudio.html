@@ -350,12 +350,12 @@ Minimo: -10
 Decimales:2
 
 Parámetro: constanteintegracion
-Máximo: 1
-Minimo: 20
+Máximo: 20
+Minimo: 1
 Decimales:2
 
 Parámetro: menorigual
-Máximo: 1
+Máximo: 9
 Minimo: 3
 
 Computo: correcto
@@ -526,7 +526,7 @@ Decimales: 1
 								alert('El parametro #' + (index + 1) + ' no tiene nombre.');
 							}
 
-							if (min.val() >= max.val()) {
+							if (parseInt(min.val()) >= parseInt(max.val())) {
 								correcto = false;
 								alert('En parametro #' + (index + 1) + ', minimo debe ser menor que maximo.');
 							}

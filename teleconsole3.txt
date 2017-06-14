@@ -1,0 +1,4 @@
+curl https://www.teleconsole.com/get.sh | sh
+teleconsole
+
+.

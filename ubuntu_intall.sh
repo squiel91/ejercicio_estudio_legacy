@@ -1,7 +1,7 @@
 #!/bin/bash/
 
 echo 'Actualizando apt-get...'
-then sudo apt-get update -y;  
+sudo apt-get update -y;  
 
 echo 'Instalando Git..'
 sudo apt-get install git -y
