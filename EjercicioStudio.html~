@@ -333,7 +333,43 @@
 
 			function cargar_ejemplo(){
 
-				ejercicio = "Titulo: Integrales indefinidas\nProblema: La función $$F(x)= \int_{-1}^{x}{(|1-x|-x)dx}$$ admite para $x \\leq &menorigual$ una expresión $F(x)=ax^2+bx + c$, en forma de un polinomio de grado menor o igual a 2.\nDeterminar la suma a + b + c de los coeficientes de ese polinomio.\nSolución: &correcto\nDistractor: &distractor_a \nDistractor: &distractor_b \nDistractor: Ningúna de las demás es correcta\nParámetro: limiteinferior\nMáximo: -1\nMinimo: -10\nDecimales:2\nParámetro: constanteintegracion\nMáximo: 20\nMinimo: 1\nDecimales:2\nParámetro: menorigual\nMáximo: 9\nMinimo: 3\nComputo: correcto\nFórmula: limiteinferior*constanteintegracion-menorigual\nDecimales:1\nComputo: distractor_a\nFórmula: limiteinferior*constanteintegracion\nDecimales: 1\nComputo: distractor_b\nFórmula: limiteinferior*menorigual\nDecimales: 1\n";
+				ejercicio = `Titulo: Integrales indefinidas
+Problema: La función $$F(x)= \int_{-1}^{x}{(|1-x|-x)dx}$$ admite para $x \\leq &menorigual$ una expresión $F(x)=ax^2+bx + c$, en forma de un polinomio de grado menor o igual a 2. 
+
+Determinar la suma a + b + c de los coeficientes de ese polinomio.
+
+Solución: &correcto
+
+Distractor: &distractor_a 
+Distractor: &distractor_b 
+Distractor: Ningúna de las demás es correcta
+
+Parámetro: limiteinferior
+Máximo: -1
+Minimo: -10
+Decimales:2
+
+Parámetro: constanteintegracion
+Máximo: 20
+Minimo: 1
+Decimales:2
+
+Parámetro: menorigual
+Máximo: 9
+Minimo: 3
+
+Computo: correcto
+Fórmula: limiteinferior*constanteintegracion-menorigual
+Decimales:1
+
+Computo: distractor_a
+Fórmula: limiteinferior*constanteintegracion
+Decimales: 1
+
+Computo: distractor_b
+Fórmula: limiteinferior*menorigual
+Decimales: 1
+`;
 				var parseado = parse(ejercicio.split("\n"));
                 cargar_ejercicio(false);
 				mostrar_ejercicio(parseado);
